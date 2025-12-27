@@ -321,7 +321,7 @@ const handleShare = (platform: 'linkedin' | 'x') => {
 
           <div className="grid grid-cols-1 gap-6">
             <div className="bg-orange-50 p-10 rounded-[2.5rem] shadow-lg border border-orange-100 flex items-center gap-8 group transition-all">
-              <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md border border-orange-100">
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md border border-orange-100">
                 <TrendingUp className="w-10 h-10 text-orange-600" />
               </div>
               <div>
@@ -330,7 +330,7 @@ const handleShare = (platform: 'linkedin' | 'x') => {
               </div>
             </div>
             <div className="bg-slate-50 p-10 rounded-[2.5rem] shadow-lg border border-slate-200 flex items-center gap-8 group transition-all">
-              <div className="w-20 h-20 rounded-3xl bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md border border-slate-100">
+              <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-md border border-slate-100">
                 <Clock className="w-10 h-10 text-slate-600" />
               </div>
               <div>
@@ -341,7 +341,7 @@ const handleShare = (platform: 'linkedin' | 'x') => {
               </div>
             </div>
             <div className="bg-[#0F172A] p-10 rounded-[2.5rem] shadow-lg border border-slate-800 flex items-center gap-8 group transition-all">
-              <div className="w-20 h-20 rounded-3xl bg-slate-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-inner border border-slate-700">
+              <div className="w-14 h-14 rounded-2xl bg-slate-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-inner border border-slate-700">
                 <ShieldAlert className="w-10 h-10 text-orange-50" />
               </div>
               <div>
@@ -361,19 +361,19 @@ const handleShare = (platform: 'linkedin' | 'x') => {
           </h2>
           <div className="grid gap-6">
             {results.recommendations.map((rec, i) => (
-              <div key={i} className="bg-white rounded-[2.5rem] p-10 shadow-lg border border-slate-200 flex flex-col md:flex-row gap-10 hover:shadow-xl transition-all group">
-                <div className={`w-20 h-20 rounded-3xl shrink-0 flex items-center justify-center transition-all group-hover:rotate-6 shadow-md ${
+              <div key={i} className="bg-white rounded-2xl p-6 shadow-lg border border-slate-200 flex flex-col md:flex-row gap-6 hover:shadow-xl transition-all group">
+                <div className={`w-14 h-14 rounded-2xl shrink-0 flex items-center justify-center transition-all group-hover:rotate-6 shadow-md ${
                   rec.type === 'immediate' ? 'bg-orange-600 text-white' : 
                   rec.type === 'structural' ? 'bg-slate-900 text-white' : 'bg-orange-50 text-orange-600 border border-orange-100'
                 }`}>
-                  {rec.type === 'immediate' ? <ShieldAlert className="w-10 h-10" /> : 
-                   rec.type === 'structural' ? <Layers className="w-10 h-10" /> : <TrendingUp className="w-10 h-10" />}
+                  {rec.type === 'immediate' ? <ShieldAlert className="w-7 h-7" /> : 
+                   rec.type === 'structural' ? <Layers className="w-7 h-7" /> : <TrendingUp className="w-7 h-7" />}
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
-                    <h4 className="text-xl font-black text-slate-900 uppercase tracking-tight">{rec.title}</h4>
+                    <h4 className="text-base font-black text-slate-900 uppercase tracking-tight">{rec.title}</h4>
                   </div>
-                  <p className="text-slate-500 font-medium text-lg leading-relaxed max-w-3xl">
+                  <p className="text-slate-600 font-medium text-sm leading-relaxed max-w-3xl">
                     {rec.description}
                   </p>
                 </div>
@@ -388,9 +388,9 @@ const handleShare = (platform: 'linkedin' | 'x') => {
               <div className="inline-flex p-4 bg-white/20 rounded-2xl backdrop-blur-md border border-white/10">
                 <Mail className="w-8 h-8 text-white" />
               </div>
-              <h2 className="text-3xl font-black uppercase tracking-tight">Technical Blueprint</h2>
+              <h2 className="text-3xl font-black uppercase tracking-tight">Your Diagnostic Report</h2>
               <p className="text-orange-50 text-lg font-medium leading-relaxed">
-                We will send the technical schema for {responses.primaryProcess}, comparing custom Node.js execution costs with Zapier/Make overhead.
+                We'll email you a detailed breakdown showing why you're losing ${results.annualValue.toLocaleString()}/year, your {results.priorityBand}-priority automation roadmap, and case studies of similar processes we've automated.
               </p>
 
               {submitted ? (
