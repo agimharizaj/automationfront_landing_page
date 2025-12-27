@@ -1,4 +1,3 @@
-
 export interface FormState {
   teamSize: string;
   toolCount: string;
@@ -10,6 +9,7 @@ export interface FormState {
   annoyance: string;
   documentation: string;
   timeSavings: string;
+  hourlyRate: string;
   email?: string;
 }
 
@@ -25,16 +25,20 @@ export interface Question {
 
 export interface DimensionScore {
   label: string;
-  score: number; // 0-10
+  score: number;
   color: string;
 }
 
 export interface DiagnosticResult {
   totalScore: number;
+  priorityBand: 'critical' | 'high' | 'medium' | 'low';
+  confidenceLevel: 'high' | 'medium' | 'low';
   dimensions: DimensionScore[];
   bottleneck: string;
   weeklySavings: number;
   annualValue: number;
+  breakEvenMonths: number;
+  estimatedBuildHours: number;
   recommendations: {
     title: string;
     description: string;

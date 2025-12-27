@@ -1,4 +1,3 @@
-
 import { Question } from './types';
 
 export const QUESTIONS: Question[] = [
@@ -73,6 +72,13 @@ export const QUESTIONS: Question[] = [
     tooltip: 'This helps us calculate your "Hidden Labor Cost"—the money you lose to manual tasks.',
     type: 'radio',
     options: ['1-2 hours', '3-5 hours', '5-10 hours', '10+ hours', 'No idea'],
+  },
+  {
+    id: 'hourlyRate',
+    text: 'What is the average hourly cost of the people doing this work?',
+    tooltip: 'This helps calculate the true financial impact. Include salary, benefits, and opportunity cost.',
+    type: 'radio',
+    options: ['$25-40/hr (Junior)', '$40-70/hr (Mid-level)', '$70-120/hr (Senior)', '$120+/hr (Leadership)'],
   },
 ];
 

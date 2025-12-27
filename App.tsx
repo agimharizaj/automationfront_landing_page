@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Hero } from './components/Hero';
 import { HowItWorks } from './components/HowItWorks';
@@ -24,6 +23,7 @@ const App: React.FC = () => {
       annoyance: '',
       documentation: '',
       timeSavings: '',
+      hourlyRate: '',
     };
   });
 
@@ -35,7 +35,6 @@ const App: React.FC = () => {
   const [isFinished, setIsFinished] = useState<boolean>(false);
   const formRef = useRef<HTMLDivElement>(null);
 
-  // Simple session counters for completion rate tracking in console
   const sessionStarts = useRef(0);
   const sessionFinishes = useRef(0);
 
