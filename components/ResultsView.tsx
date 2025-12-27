@@ -459,14 +459,22 @@ const handleShare = (platform: 'linkedin' | 'x') => {
           </div>
         </div>
 
+
+
+
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 pt-12 pb-20">
-          <button 
-            onClick={downloadPDF}
-            className="flex items-center px-12 py-6 bg-slate-900 text-white rounded-xl font-black uppercase tracking-widest hover:bg-black transition-all shadow-xl active:scale-95"
-          >
-            <Download className="w-6 h-6 mr-4" />
-            Download Report (PDF)
-          </button>
+<div className="flex flex-col items-center gap-2">
+            <button
+              onClick={downloadPDF}
+              className="flex items-center px-6 py-3 bg-slate-900 text-white rounded-lg font-bold text-sm uppercase tracking-wide hover:bg-black transition-all shadow-lg active:scale-95">
+              <Download className="w-5 h-5 mr-3" />
+              Quick Summary (PDF)
+            </button>
+            <p className="text-xs text-slate-400 text-center">Basic overview • Detailed report sent via email</p>
+          </div>
+
+
+
           
           <div className="flex gap-4">
 <button onClick={() => handleShare('linkedin')} className="p-6 bg-white border border-slate-200 rounded-xl text-slate-400 hover:text-orange-600 transition-all shadow-lg">
