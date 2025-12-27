@@ -31,7 +31,7 @@ export const calculateResults = (responses: FormState): DiagnosticResult => {
 
   // Calculate savings
   const weeklySavings = extractWeeklySavings(responses.timeSavings);
-  const annualValue = Math.round(weeklySavings * 52 * 50); // £50/hour estimate
+  const annualValue = Math.round(weeklySavings * 52 * 50); // $50/hour estimate
 
   // Determine bottleneck: Use the actual pain point from Question 8, with intelligent fallback
   const bottleneck = responses.annoyance && responses.annoyance.trim().length > 0
@@ -189,7 +189,7 @@ function generateRecommendations(
   // Recommendation 6: ROI-based for significant time savings
   if (weeklySavings >= 5) {
     recs.push({
-      title: `Recover ${weeklySavings} Hours/Week = £${(weeklySavings * 52 * 50).toLocaleString()}/Year`,
+      title: `Recover ${weeklySavings} Hours/Week = $${(weeklySavings * 52 * 50).toLocaleString()}/Year`,
       description: `You're spending ${weeklySavings} hours every week on "${processName}". That's ${Math.round(weeklySavings * 52)} hours annually. Automate the most repetitive 30% of this workflow to unlock 60-70% of the time savings immediately.`,
       type: 'strategic' as const
     });
