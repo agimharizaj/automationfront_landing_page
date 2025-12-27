@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { FormState } from '../types';
-import { Download, Mail, RefreshCw, CheckCircle2, Zap, Layers, ShieldAlert, TrendingUp, Calendar, Clock, Linkedin, Twitter } from 'lucide-react';
+import { Download, Mail, RefreshCw, CheckCircle2, Zap, Layers, ShieldAlert, TrendingUp, Calendar, Clock, Linkedin, Twitter as X } from 'lucide-react';
 import { analytics } from '../analytics';
 import { calculateResults } from '../scoring';
 
@@ -239,12 +239,19 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ responses, onReset }) 
     }
   };
 
-  const handleShare = (platform: 'linkedin' | 'twitter') => {
-    const shareUrl = window.location.href;
-    const shareText = `I just ran a process audit: ${results.totalScore}% potential savings for ${responses.primaryProcess}.`;
+const handleShare = (platform: 'linkedin' | 'x') => {
+    const shareUrl = 'https://automationfront.vercel.app';
+    
+    let shareText = '';
+    if (platform === 'linkedin') {
+      shareText = `Just audited "${responses.primaryProcess}" with AutomationFront:\n\n✅ ${results.totalScore}% automation potential\n💰 $${results.annualValue.toLocaleString()}/year value\n⏱️ ${results.weeklySavings} hours/week saved\n\nIf you're manually running repetitive processes, this free diagnostic is worth 5 minutes.`;
+    } else {
+      shareText = `Audited my "${responses.primaryProcess}" workflow:\n\n${results.totalScore}% automation score\n$${results.annualValue.toLocaleString()}/year on the table\n\nFree 5-min diagnostic that actually surprised me 👇`;
+    }
+    
     const url = platform === 'linkedin' 
       ? `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}` 
-      : `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+      : `https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
     window.open(url, '_blank');
   };
 
@@ -462,12 +469,15 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ responses, onReset }) 
           </button>
           
           <div className="flex gap-4">
-             <button onClick={() => handleShare('linkedin')} className="p-6 bg-white border border-slate-200 rounded-xl text-slate-400 hover:text-orange-600 transition-all shadow-lg">
+<button onClick={() => handleShare('linkedin')} className="p-6 bg-white border border-slate-200 rounded-xl text-slate-400 hover:text-orange-600 transition-all shadow-lg">
                 <Linkedin className="w-7 h-7" />
              </button>
-             <button onClick={() => handleShare('twitter')} className="p-6 bg-white border border-slate-200 rounded-xl text-slate-400 hover:text-orange-600 transition-all shadow-lg">
-                <Twitter className="w-7 h-7" />
-             </button>
+<button onClick={() => handleShare('x')} className="p-6 bg-white border border-slate-200 rounded-xl text-slate-400 hover:text-orange-600 transition-all shadow-lg">
+   <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+   </svg>
+</button>
+
           </div>
 
           <button 
