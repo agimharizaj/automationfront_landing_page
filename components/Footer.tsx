@@ -14,10 +14,20 @@ export const Footer: React.FC = () => {
           </div>
           
           <nav className="flex flex-wrap justify-center gap-x-10 gap-y-4">
-            <a href="mailto:agimharizaj600@gmail.com" className="text-slate-500 hover:text-orange-600 font-black uppercase text-xs tracking-[0.2em] transition-colors">
+            <a 
+              href="mailto:agimharizaj600@gmail.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-500 hover:text-orange-600 font-black uppercase text-xs tracking-[0.2em] transition-colors"
+            >
               Contact
             </a>
-            <a href="https://www.linkedin.com/in/agim-harizaj/" className="text-slate-500 hover:text-orange-600 font-black uppercase text-xs tracking-[0.2em] transition-colors">
+            <a 
+              href="https://www.linkedin.com/in/agim-harizaj/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-slate-500 hover:text-orange-600 font-black uppercase text-xs tracking-[0.2em] transition-colors"
+            >
               LinkedIn
             </a>
           </nav>
