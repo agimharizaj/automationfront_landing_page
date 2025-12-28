@@ -4,7 +4,7 @@ import { ClipboardCheck, BarChart3, Calendar } from 'lucide-react';
 export const HowItWorks: React.FC = () => {
   const steps = [
     {
-      title: "Analyse 10 key workflows",
+      title: "Analyse Key Workflows",
       description: "Answer 11 questions about your process: team size, tools, error frequency, and time spent on manual work.",
       icon: <ClipboardCheck className="w-8 h-8 text-orange-600" />,
     },
