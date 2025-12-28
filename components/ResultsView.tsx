@@ -47,6 +47,28 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ responses, onReset }) 
           fullResponses: responses
         })
       });
+    // Send to n8n webhook for automated email + Airtable
+    const n8nResponse = await fetch('https://eduardo-evocative-elevatingly.ngrok-free.dev/webhook/automation-diagnostic', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        score: results.totalScore,
+        priority: results.priorityBand,
+        confidence: results.confidenceLevel,
+        annualValue: results.annualValue,
+        weeklySavings: results.weeklySavings,
+        breakEvenMonths: results.breakEvenMonths,
+        processName: responses.primaryProcess,
+        bottleneck: results.bottleneck,
+        hourlyRate: responses.hourlyRate,
+        teamSize: responses.teamSize,
+        toolCount: responses.toolCount,
+        errorFrequency: responses.errorFrequency,
+        recommendations: results.recommendations.slice(0, 3)
+      })
+    });
+
 
       if (response.ok) {
         setSubmitted(true);
