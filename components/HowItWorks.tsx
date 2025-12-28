@@ -5,17 +5,17 @@ export const HowItWorks: React.FC = () => {
   const steps = [
     {
       title: "Analyse 10 key workflows",
-      description: "Qualitative assessment of your current manual overhead and friction points.",
+      description: "Answer 11 questions about your process: team size, tools, error frequency, and time spent on manual work.",
       icon: <ClipboardCheck className="w-8 h-8 text-orange-600" />,
     },
     {
       title: "Receive Precision Score",
-      description: "Our engine calculates automation alpha and projected labour recovery.",
+      description: "Get your automation score, annual cost breakdown, ROI timeline, and personalized execution roadmap.",
       icon: <BarChart3 className="w-8 h-8 text-orange-600" />,
     },
     {
       title: "Optional Strategy Call",
-      description: "Discuss architecture and implementation roadmap for your bottleneck.",
+      description: "Discuss your specific workflow, tools, and next steps with an automation specialist. 30 minutes, no obligation.",
       icon: <Calendar className="w-8 h-8 text-orange-600" />,
     },
   ];

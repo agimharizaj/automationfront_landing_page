@@ -21,7 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onStart }) => {
           Identify the processes <span className="text-orange-600 italic">killing your team's velocity</span>
         </h1>
         <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto leading-relaxed font-medium">
-          Free 10-minute diagnostic for startup founders. Get a scored report showing automation potential + estimated time savings.
+          Free 5-minute diagnostic for your processes. Get a scored report showing automation potential + estimated time savings.
         </p>
         <button
           onClick={onStart}
